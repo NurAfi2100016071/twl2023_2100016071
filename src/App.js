@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import NavbarComponent from './components/NavbarComponent';
+import Berita from './components/Berita';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Home, Link } from './Pages';
+import Action from './Pages/action';
+import Alamat from './Pages/alamat';
+import Nohp from './Pages/nohp';
+import Penawaran from './Pages/penawaran';
+import Galeri from './Pages/galeri';
+import Testimoni from './Pages/testimoni';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload Afi.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <BrowserRouter>
+        <NavbarComponent />
+        <Berita />
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/link*" element={<Link/>} />
+          <Route path="/action*" element={<Action/>} />
+          <Route path="/alamat*" element={<Alamat/>} />
+          <Route path="/nohp*" element={<Nohp/>} />
+          <Route path="/penawaran*" element={<Penawaran/>} />
+          <Route path="/galeri*" element={<Galeri/>} />
+          <Route path="/testimoni*" element={<Testimoni/>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
 
-export default App;
+export default App
